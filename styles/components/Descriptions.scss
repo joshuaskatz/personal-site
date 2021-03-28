@@ -1,0 +1,12 @@
+.description {
+  background-image: linear-gradient(45deg, $yellow, $pink);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: 0.2rem;
+  text-transform: lowercase;
+}

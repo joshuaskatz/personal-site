@@ -1,0 +1,31 @@
+@import "./theme/custom.scss";
+@import "./theme/variables.scss";
+
+// components
+@import "./components/Descriptions.scss";
+@import "./components/Name.scss";
+@import "./components/NavBar.scss";
+
+// pages
+@import "./pages/about.scss";
+@import "./pages/contact.scss";
+@import "./pages/projects.scss";
+@import "./pages/skills.scss";
+
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap");
+
+html {
+  height: 100vh;
+  font-size: 62.5%;
+}
+
+body {
+  height: 100vh;
+  font-size: 1.6rem !important;
+  font-family: "Lato", sans-serif;
+}
+
+.column {
+  height: 100vh;
+  display: flex;
+}
