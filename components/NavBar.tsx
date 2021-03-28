@@ -1,9 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { Col, Container, Row } from "react-bootstrap";
-import { Document, pdfjs } from "react-pdf";
-
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
+import { Col, Row } from "react-bootstrap";
 
 const routes: Record<"href" | "title", string>[] = [
   {
