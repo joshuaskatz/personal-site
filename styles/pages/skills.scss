@@ -1,0 +1,20 @@
+.icon {
+  width: 15rem;
+  height: 15rem;
+  transition: transform ease-in-out 0.2s;
+
+  &:hover {
+    transform: scale(1.4);
+  }
+}
+
+.icon-container {
+  margin: 1rem 3rem;
+
+  transition: margin ease-in-out 0.2s;
+
+  &:hover {
+    margin: 1rem 6rem;
+    cursor: pointer;
+  }
+}
