@@ -1,0 +1,16 @@
+.phoneNavDropdown {
+  filter: invert(60%) sepia(49%) saturate(728%) hue-rotate(302deg)
+    brightness(101%) contrast(107%);
+
+  &--closed {
+    width: 5rem;
+  }
+
+  &--open {
+    width: 5rem;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}

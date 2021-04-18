@@ -6,6 +6,7 @@
 @import "./components/Name.scss";
 @import "./components/NavBar.scss";
 @import "./components/SkillDesc.scss";
+@import "./components/MenuButton.scss";
 
 // pages
 @import "./pages/about.scss";
@@ -21,12 +22,13 @@ html {
 }
 
 body {
-  height: 100vh;
+  height: 90vh;
+  margin: 3rem;
   font-size: 1.6rem !important;
   font-family: "Lato", sans-serif;
 }
 
 .column {
-  height: 100vh;
+  height: 92vh;
   display: flex;
 }

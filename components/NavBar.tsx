@@ -1,45 +1,47 @@
-import React from "react";
-import Link from "next/link";
-import { Col, Row } from "react-bootstrap";
-
-const routes: Record<"href" | "title", string>[] = [
-  {
-    href: "/",
-    title: "about",
-  },
-  {
-    href: "/skills",
-    title: "skills",
-  },
-  {
-    href: "/projects",
-    title: "projects",
-  },
-  {
-    href: "/contact",
-    title: "contact",
-  },
-];
+import React, { useState } from "react";
+import { Col, Container, Row } from "react-bootstrap";
+import { useScreenType } from "../layout/useScreenSize";
+import { MenuButton } from "./MenuButton";
+import { NavBarItems } from "./NavBarItems";
 
 export const NavBar: React.FC = () => {
-  return (
-    <Row>
-      {routes.map(({ href, title }) => (
-        <Col xs={{ span: 8, offset: 4 }}>
-          <Link href={href}>
-            <h5 key={title} className="link">
-              {title}
-            </h5>
-          </Link>
+  const [isPhoneDropdown, setIsPhoneDropDown] = useState(false);
+  const screenType = useScreenType();
+
+  const colSize = () => {
+    switch (screenType) {
+      case "isDesktop":
+        return { span: 8, offset: 4 };
+      case "isDesktopTablet":
+        return { span: 9, offset: 3 };
+      case "isTabletPhone":
+        return;
+      case "isPhone":
+        return 12;
+    }
+  };
+
+  const handleOnPhoneDropdownClick = () => setIsPhoneDropDown(!isPhoneDropdown);
+
+  if (screenType === "isPhone") {
+    return (
+      <Row>
+        <Col>
+          <MenuButton
+            state={isPhoneDropdown ? "open" : "closed"}
+            onClick={() => handleOnPhoneDropdownClick()}
+          />
         </Col>
-      ))}
-      <Col xs={{ span: 8, offset: 4 }}>
-        <h5 className="link">
-          <a href="Joshua_Katz_Resume.pdf" download>
-            résumé
-          </a>
-        </h5>
-      </Col>
-    </Row>
+        {isPhoneDropdown && <NavBarItems colSize={colSize()} />}
+      </Row>
+    );
+  }
+
+  return (
+    <Container className="d-flex justify-content-center">
+      <Row>
+        <NavBarItems colSize={colSize()} />
+      </Row>
+    </Container>
   );
 };

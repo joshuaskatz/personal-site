@@ -8,8 +8,8 @@ export type technology =
   | "react"
   | "graphql"
   | "node"
-  | "postgresql"
   | "firebase"
+  | "aws"
   | "jest";
 
 const languages: language[] = [
@@ -24,14 +24,13 @@ const technologies: technology[] = [
   "react",
   "graphql",
   "node",
-  "postgresql",
   "firebase",
+  "aws",
   "jest",
 ];
 
 const skills: React.FC = () => {
-  const [visibleDesc, setVisibleDesc] = useState(false);
-  const [desc, setDesc] = useState<language | technology | null>(null);
+  const [desc, setDesc] = useState<language | technology>("typescript");
 
   const selectedDesc = (skill: language | technology) => (
     <SkillDesc skill={skill} />
@@ -39,7 +38,7 @@ const skills: React.FC = () => {
 
   return (
     <Row>
-      <Col xs={visibleDesc ? 9 : 12}>
+      <Col xs={9}>
         <Row className="d-flex justify-content-end align-items-center icon-row">
           {languages.map((skill: language) => (
             <Col key={skill} xs={1} className="icon-container">
@@ -47,7 +46,6 @@ const skills: React.FC = () => {
                 src={`icons/languages/${skill}.svg`}
                 className="icon"
                 onClick={() => {
-                  setVisibleDesc(true);
                   setDesc(skill);
                 }}
               />
@@ -61,7 +59,6 @@ const skills: React.FC = () => {
                 src={`icons/technologies/${skill}.svg`}
                 className="icon"
                 onClick={() => {
-                  setVisibleDesc(true);
                   setDesc(skill);
                 }}
               />
@@ -69,11 +66,8 @@ const skills: React.FC = () => {
           ))}
         </Row>
       </Col>
-      <Col
-        xs={visibleDesc ? { span: 2, offset: 1 } : 0}
-        className="d-flex align-items-center"
-      >
-        {visibleDesc && selectedDesc(desc)}
+      <Col xs={{ span: 2, offset: 1 }} className="d-flex align-items-center">
+        {selectedDesc(desc)}
       </Col>
     </Row>
   );
