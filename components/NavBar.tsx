@@ -1,8 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
+import { animated, useSpring } from "react-spring";
 import { useScreenType } from "../layout/useScreenSize";
 import { MenuButton } from "./MenuButton";
 import { NavBarItems } from "./NavBarItems";
+
+export function usePrevious(value) {
+  const ref = useRef();
+  useEffect(() => void (ref.current = value), [value]);
+  return ref.current;
+}
 
 export const NavBar: React.FC = () => {
   const [isPhoneDropdown, setIsPhoneDropDown] = useState(false);
@@ -26,7 +33,7 @@ export const NavBar: React.FC = () => {
   if (screenType === "isPhone") {
     return (
       <Row>
-        <Col>
+        <Col xs={12}>
           <MenuButton
             state={isPhoneDropdown ? "open" : "closed"}
             onClick={() => handleOnPhoneDropdownClick()}

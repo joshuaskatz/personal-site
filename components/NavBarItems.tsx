@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { Col } from "react-bootstrap";
 
-const routes: Record<"href" | "title", string>[] = [
+export const routes: Record<"href" | "title", string>[] = [
   {
     href: "/",
     title: "about",

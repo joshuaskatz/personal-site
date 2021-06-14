@@ -10,7 +10,7 @@ export const Layout: React.FC = ({ children }) => {
     return (
       <Row>
         <Col xs={9} className="d-flex align-items-center column">
-          {/* {children} */}
+          {children}
         </Col>
         <Col xs={3} className="d-flex align-items-center column">
           <NavBar />
@@ -23,7 +23,7 @@ export const Layout: React.FC = ({ children }) => {
     return (
       <Row>
         <NavBar />
-        {/* {children} */}
+        {children}
       </Row>
     );
   }
